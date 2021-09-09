@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		int year = 3;
+		switch(year){
+			case '1','2','3':
+				out.print("저학년입니다");
+			break;
+			case '3','4','6':
+				out.print("고학년이군요");
+			break;
+		}
+	%>
+</body>
+</html>

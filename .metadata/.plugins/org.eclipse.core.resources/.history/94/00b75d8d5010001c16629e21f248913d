@@ -1,0 +1,5 @@
+package green.servlets;
+
+public class HelloServlet {
+
+}

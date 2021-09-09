@@ -1,0 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>태그 사용하기</title>
+</head>
+<body>
+	<% int a=100;
+		out.print("이곳에 자바 코드를 사용할 수 있어요 <br>");
+	%>
+	HTML 태그를 사용하여 줄바꿈
+
+</body>
+</html>

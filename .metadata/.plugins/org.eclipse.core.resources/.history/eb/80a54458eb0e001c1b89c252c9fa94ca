@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.util.ArrayList" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	여기는 c
+	<%
+		
+	%>	
+	<%!
+		class Red{
+			private int tire;
+			private int point;
+			private int migum;
+			
+			public int getTire(){return this.tire;}
+			public void setTire(int tire){this.tire=tire;}
+			
+			public int getPoint(){return this.point;}
+			public void setPoint(int point){this.point=point;}
+			
+			public int getMigum(){return this.migum;}
+			public void setMigum(int migum){this.migum=migum;}	
+		}
+	%>
+	<% Red a = new Red(); 
+		a.setTire(5); 
+		a.setPoint(4);
+		a.setMigum(3); 
+	%>
+	<%	List<Integer> list = new ArrayList<Integer>();
+		list.add(a.getTire()); 
+		list.add(a.getPoint()); 
+		list.add(a.getMigum()); 
+	%>
+</body>
+</html>

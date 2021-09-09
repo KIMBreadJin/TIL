@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<jsp:useBean id="a" scope="request" class="test.Green"/>
+<%@ page import = "test.Green" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		Green gr= (Green)request.getAttribute("a");
+	%>
+	<% gr.setTire(11); %>
+	<% gr.setDriver(22); %>
+	<% gr.setWindow(33); %>
+	<% gr.setName("홍길동"); %>
+
+</body>
+</html>

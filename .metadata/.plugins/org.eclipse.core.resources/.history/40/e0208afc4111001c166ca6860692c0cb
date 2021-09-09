@@ -1,0 +1,48 @@
+package com.green.dto;
+
+public class Bus {
+	private int address;
+	private int phone;
+	private int father;
+	private int mother;
+	private int son;
+	private String name;
+	public int getAddress() {
+		return address;
+	}
+	public void setAddress(int address) {
+		this.address = address;
+	}
+	public int getPhone() {
+		return phone;
+	}
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+	public int getFather() {
+		return father;
+	}
+	public void setFather(int father) {
+		this.father = father;
+	}
+	public int getMother() {
+		return mother;
+	}
+	public void setMother(int mother) {
+		this.mother = mother;
+	}
+	public int getSon() {
+		return son;
+	}
+	public void setSon(int son) {
+		this.son = son;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}

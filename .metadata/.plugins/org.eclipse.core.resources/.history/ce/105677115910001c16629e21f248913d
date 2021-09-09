@@ -1,0 +1,25 @@
+package com.green.servlets;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@SuppressWarnings("serial")
+@WebServlet("/el/search")
+public class SearchServlet extends HttpServlet {
+	Map<String, String> map = new HashMap<>();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("search 서블릿" + request.getParameter("name"));
+		for(int i=0; i<10; i++) {
+			map.put("홍"+i,"미금" + (i+3)*6);
+		}
+		System.out.println("Map에서 겁색된 결과는" + map.get(request.getParameter("name")));
+	}
+
+}

@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<jsp:useBean id = "g" scope="page" class="test.User"></jsp:useBean>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	여기는 a페이지
+	<jsp:setProperty name = "info" property="name" value="모짜르트"/>
+	<jsp:setProperty name = "info" property="num" value="123213"/>
+</body>
+</html>

@@ -1,0 +1,41 @@
+package com.green.servlets;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.green.dto.Green;
+
+@SuppressWarnings("serial")
+@WebServlet("/list")
+public class ListServlet extends HttpServlet {
+	List<Green> list = new ArrayList<>();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Green g = new Green();
+//		String name = request.getParameter("name"); 
+//		String window = request.getParameter("window"); 
+//		String tire = request.getParameter("tire"); 
+//		String driver = request.getParameter("driver");
+		for(int i = 0; i<5; i++) {
+			g.setDriver(i+5);
+			g.setName("김영진");
+			g.setTire(i+4);
+			g.setWindow(i+22);
+			list.add(g);
+		}
+		System.out.println("list post 값 " + list);
+//		System.out.println("list의 post에서의 name:" + name + "창문 : " + window + "운전자 : " +driver+ "타이어 : " + tire);
+		doGet(request, response);
+	}
+
+}

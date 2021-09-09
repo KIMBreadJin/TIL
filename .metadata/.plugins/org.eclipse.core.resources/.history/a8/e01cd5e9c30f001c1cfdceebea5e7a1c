@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "test.Green" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		Green gg= (Green)request.getAttribute("a");
+	%>
+	<% gg.setTire(11); %>
+	<% gg.setDriver(1231231); %>
+	<% gg.setWindow(1231231); %>
+	<% gg.setName("홍길동"); %>
+
+</body>
+</html>

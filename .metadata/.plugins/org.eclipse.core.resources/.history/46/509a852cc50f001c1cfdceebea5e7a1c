@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import = "test.Green" %>
+<%
+	Green gr = new Green();
+	session.setAttribute("a", gr);
+%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	이름 : <%= gr.getName() %> <br>
+	타이어 : <%= gr.getTire() %> <br>
+	드라이버 : <%= gr.getDriver() %> <br>
+	윈도우 : <%= gr.getWindow() %> <br>
+	<jsp:include page="busan.jsp"/>
+</body>
+</html>
