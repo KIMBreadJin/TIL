@@ -36,14 +36,14 @@ public class ScoreListServlet extends HttpServlet {
 			List<Score> Scores = new ArrayList<>();
 			while(rs.next()) {
 				Scores.add(new Score()
-						.setTno(rs.getInt("tno"))
-						.setTname(rs.getString("tname"))
+						.setSno(rs.getInt("sno"))
+						.setSname(rs.getString("sname"))
 						.setKor(rs.getInt("kor"))
 						.setEng(rs.getInt("eng"))					
 						.setMath(rs.getInt("math"))
-						.setTavg(rs.getFloat("tavg"))
+						.setAvg(rs.getFloat("avg"))
 						.setTotal(rs.getInt("total"))
-						.setGrade(rs.getString("grade"))
+						.setIsfail(rs.getString("isFail"))
 						);
 			}
 			request.setAttribute("key", Scores);	

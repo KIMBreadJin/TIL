@@ -10,13 +10,13 @@
 <body>
 	<c:forEach var ="score" items = "${key}">
 		 ${score.tno})
-		이름 : [${score.tname}]
+		이름 : [${score.sname}]
 		수학 :[${score.kor}]
 		영어 :[${score.eng}]
 		수학 :[${score.math}]
-		평균 :[${score.tavg}]
+		평균 :[${score.avg}]
 		총점 :[${score.total}]
-		등급 :[${score.grade}]
+		등급 :[${score.isFail}]
 	</c:forEach>
 </body>
 </html>

@@ -20,6 +20,7 @@ public class DBConnectionPool {
 		if(connList.size() > 0) {
 			Connection conn = connList.get(0);
 			if(conn.isValid(10)) return conn;
+		;
 		}
 		return DriverManager.getConnection(url,username,password);
 	}

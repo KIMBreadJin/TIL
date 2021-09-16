@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.green.mapper.GreenMapper">
+	<select id="getName" resultType="string">
+		select name from green
+	</select>
+	<select id="getNumber" resultType="int">
+		select num from green
+	</select>
+	<select id="getList" resultType="com.green.vo.Green">
+		select * from green
+	</select>
+</mapper>

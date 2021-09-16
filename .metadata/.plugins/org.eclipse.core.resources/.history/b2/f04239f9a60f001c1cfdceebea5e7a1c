@@ -1,8 +1,0 @@
-<%@ page import="test.Echo" language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<jsp:useBean id = "myEcho" class="test.Echo" scope="reqeust"></jsp:useBean>
-<jsp:setProperty name ="myEcho" property="msg"/>
-<b> request 객체 정보 </b>
-<%
-	out.print("Echo 빈즈에서 받은 내용: " +myEcho.getMsg()+"<br>");
-%>

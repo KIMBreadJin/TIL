@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="servlet0906_step3">
-        <property name="context-root" value="servlet0906_step3"/>
-        <property name="java-output-path" value="/servlet0906_step3/build/classes"/>
-    </wb-module>
-</project-modules>

@@ -1,4 +1,0 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<b> 이제 move.jsp로 이동합니다.</b>
-<jsp:forward page="move.jsp"></jsp:forward>

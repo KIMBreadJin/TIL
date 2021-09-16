@@ -1,29 +1,34 @@
 package score.dto;
 
 public class Score {
-	protected int tno;
-	protected String tname;
+	protected int sno;
+	protected String sname;
+	protected String spassword;
 	protected int kor;
 	protected int eng;
 	protected int math;
-	protected float tavg;
+	protected float avg;
 	protected int total;
-	protected String grade;
-	
-	
-	
-	public String getTname() {
-		return tname;
+	protected String isfail;
+	public int getSno() {
+		return sno;
 	}
-	public Score setTname(String tname) {
-		this.tname = tname;
+	public Score setSno(int sno) {
+		this.sno = sno;
 		return this;
 	}
-	public int getTno() {
-		return tno;
+	public String getSname() {
+		return sname;
 	}
-	public Score setTno(int tno) {
-		this.tno = tno;
+	public Score setSname(String sname) {
+		this.sname = sname;
+		return this;
+	}
+	public String getSpassword() {
+		return spassword;
+	}
+	public Score setSpassword(String spassword) {
+		this.spassword = spassword;
 		return this;
 	}
 	public int getKor() {
@@ -47,11 +52,11 @@ public class Score {
 		this.math = math;
 		return this;
 	}
-	public float getTavg() {
-		return tavg;
+	public float getAvg() {
+		return avg;
 	}
-	public Score setTavg(float tavg) {
-		this.tavg = tavg;
+	public Score setAvg(float avg) {
+		this.avg = avg;
 		return this;
 	}
 	public int getTotal() {
@@ -61,13 +66,15 @@ public class Score {
 		this.total = total;
 		return this;
 	}
-	public String getGrade() {
-		return grade;
+	public String getIsfail() {
+		return isfail;
 	}
-	public Score setGrade(String grade) {
-		this.grade = grade;
+	public Score setIsfail(String isfail) {
+		this.isfail = isfail;
 		return this;
 	}
-	
+
 	
 }
+	
+	
