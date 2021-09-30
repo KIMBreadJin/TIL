@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.ManageMapper">
+
+	<select id="getList" resultType="com.green.vo.ManagePersonVO">
+		select * from tbl_manage_person
+	</select> 
+	
+	<select id="getCount" resultType="int">
+		select sum(familynum) from tbl_manage_person where address = #{address}
+	</select>
+	
+	<select id="secondList" resultType="com.green.vo.ManagePersonVO">
+	<![CDATA[
+		select address, people from(
+		    select /*+ index_decs(tbl_manage_person idx_person*/
+		          address, sum(familynum) people from tbl_manage_person group by address
+		         )
+		    where people > 0
+		    ]]>
+	</select>
+</mapper>
