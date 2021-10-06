@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.ReplyMapper">
+	<insert id="insert">
+		insert into tbl_reply(rno ,bno, reply, replyer)
+			values (seq_reply.nextval, #{bno},#{reply},#{replyer})
+	</insert>
+	<select id="read" resultType="com.green.vo.ReplyVO"> 
+		select * from tbl_reply where rno = #{rno}
+	</select>
+	<update id="update" >
+		 update tbl_reply set reply= #{reply},
+		 	updateDate = sysdate where rno = #{rno}
+	</update>
+	<!-- <select id="getListWithPaging" resultType="com.green.vo.ReplyVO">
+		select rno, bno ,reply,replyer, replyDate, updateDate
+			from tbl_reply where bno = #{bno} order by rno asc
+	</select> -->
+	<select id="getListWithPaging" resultType="com.green.vo.ReplyVO">
+		<![CDATA[
+			select rno ,bno ,rno ,reply,replyer, replyDate,updateDate
+				from 
+				(
+				    select /*+ index(tbl_reply idx_reply) */
+				    rownum rn ,bno ,rno ,reply,replyer, replyDate,updateDate
+				        from tbl_reply
+				    where bno = #{bno} and rno>0
+				        and rownum <=#{cri.pageNum} * #{cri.amount}
+				 ) where rn >(#{cri.pageNum}-1) * #{cri.amount}
+       ]]>
+    </select>
+	<delete id="delete">
+		delete from tbl_reply where rno = #{rno}
+	</delete>
+	<select id="getCountByBno" resultType="int">
+		select count(rno) from tbl_reply where bno =#{bno}
+	</select>
+	
+</mapper>
