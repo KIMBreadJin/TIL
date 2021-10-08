@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.LoanMapper">
+	<select id = "info" resultType="com.green.vo.LoanVO">
+		select free_id, free_name, loan_total, loan_withdraw, lmoney from tbl_loan where free_name = #{free_name}
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_loan (free_id, free_name, loan_total, loan_withdraw, lmoney)
+		values (#{free_id},#{free_name},#{loan_total},#{loan_withdraw},#{lmoney})
+	</insert>
+	<update id="update" >
+		update tbl_loan set lmoney = #{lmoney}, loan_withdraw = #{loan_withdraw} where free_id = #{free_id}
+	</update>
+</mapper>

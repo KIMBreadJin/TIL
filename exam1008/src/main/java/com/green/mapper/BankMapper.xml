@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.BankMapper">
+	<select id = "getList" resultType="com.green.vo.BankVO">
+		select * from tbl_free
+	</select>
+	<select id="login" resultType="com.green.vo.BankVO">
+		select * from tbl_free where free_name = #{free_name} and free_password = #{free_password}
+	</select>
+	<update id="deposit" >
+		update tbl_free set fmoney = #{fmoney}, fdeposit = #{fdeposit} where free_id = #{free_id}
+	</update>
+	<update id="withdraw" >
+		update tbl_free set fmoney = #{fmoney}, fwithdraw = #{fwithdraw} where free_id = #{free_id}
+	</update>
+</mapper>
