@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.LoginMapper">
+	<insert id="register">
+		insert into tbl_login values(seq_login.nextval,#{login_name},#{login_password}
+			,#{login_serial})
+	</insert>
+	<select id="loginWithPWAndName" parameterType="com.green.vo.LoginVO" resultType="com.green.vo.LoginVO">
+		select * from tbl_login where login_name = #{login_name} and login_password= #{login_password}
+	</select>
+	
+	<select id="getLoginOneWithName" resultType="com.green.vo.LoginVO">
+		select * from tbl_login where login_name = #{login_name}
+	</select>
+	<select id="getMaxId" resultType="long">
+		select max(login_id) from tbl_login
+	</select>
+	<select id="getList" resultType="com.green.vo.LoginVO">
+		select * from tbl_login
+	</select>
+</mapper>

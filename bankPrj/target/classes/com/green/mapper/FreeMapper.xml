@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.FreeMapper">
+	<select id="getListWithName" resultType="com.green.vo.FreeVO">
+		select * from tbl_free where free_name = #{login_name} 
+	</select>
+	<select id="getList" resultType="com.green.vo.FreeVO">
+		select * from tbl_free 
+	</select>
+	<select id="getListOneWithName" resultType="com.green.vo.FreeVO">
+		<![CDATA[
+			select * from 
+				(select * 
+					from tbl_free where free_name= #{login_name} order by free_id desc)	
+			where rownum<=1	
+		]]>
+	</select>
+	<insert id="register">
+	insert into tbl_free values (
+		seq_free.nextval,
+	    #{free_name},
+	    #{free_password},
+	    #{free_serial} ,
+	    #{free_deposit} ,
+	    #{free_withdraw} ,
+	    #{free_balance} ,
+	    #{free_loan} )
+	</insert>
+</mapper>

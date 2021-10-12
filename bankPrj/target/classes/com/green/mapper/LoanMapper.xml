@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.LoanMapper">
+	<select id="getList" resultType="com.green.vo.LoanVO">
+		select * from tbl_loan
+	</select>
+	<select id="getLoanWithName" resultType="com.green.vo.LoanVO">
+		<![CDATA[
+			select * from 
+				(select * 
+					from tbl_loan where loan_name= #{login_name} order by loan_id desc)	
+			where rownum<=1	
+		]]>
+	</select>
+	<insert id="insert">
+	insert into tbl_loan values (
+		seq_loan.nextval,
+	    #{loan_name},
+	    #{loan_password},
+	    #{loan_serial} ,
+	    #{loan_deposit} ,
+	    #{loan_withdraw} ,
+	    #{loan_balance}  )
+	</insert>
+</mapper>
