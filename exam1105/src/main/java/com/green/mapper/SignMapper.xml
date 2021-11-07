@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.SignMapper">
+	<insert id="signup">
+		insert into signup_tbl (sid, sname, spassword, address, address2, phone, phone2) 
+    		values(seq_id.nextval,#{sname},#{spassword},#{address},#{address2},#{phone},#{phone2})
+	</insert>
+	<select id="login" resultType="com.green.vo.SignVO">
+		select * from signup_tbl where sname = #{sname} and spassword = #{spassword}
+	</select>
+</mapper>

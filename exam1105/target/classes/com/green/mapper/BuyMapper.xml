@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.mapper.BuyMapper">
+	<insert id="somebuy">
+		insert into buy_tbl (sid,bname, bpassword, baddress, baddress2, bphone2,
+							 bnum, product, price, amount, total, coupon, cuse) 
+    		values(#{sid},#{bname},#{bpassword},#{baddress},#{baddress2},#{bphone2},
+    				#{bnum},#{product},#{price},#{amount},#{total},#{coupon},#{cuse})
+	</insert>
+	<select id="buyList" resultType="com.green.vo.BuyVO"> 
+		select * from buy_tbl
+	</select>
+		<delete id="takeBack">
+		delete from buy_tbl where bnum =#{bnum}
+	</delete>
+</mapper>
