@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const func1 = (u, v) => {
+        v(9, [12, 6, 9, 23])
+      }
+      func1(3, (ans, arr) => {
+        var sum = 0
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] % 2 == 0) sum += arr[i]
+        }
+        console.log('짝수인것들의 총합은' + sum)
+      })
+    </script>
+  </body>
+</html>

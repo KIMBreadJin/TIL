@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .tab-menu {
+        list-style: none;
+        height: 80px;
+      }
+      .tab-menu li {
+        width: 99px;
+        height: 40px;
+        background-position-y: 0;
+        text-indent: -1000px; /* 들어쓰기 */
+        overflow: hidden;
+        display: inline-block;
+        float: left;
+      }
+      .tab-menu li:hover {
+        background-position-y: -40px;
+      }
+      .tab-menu li.select {
+        background-position-y: -80px;
+        height: 80px;
+      }
+      .tab-menu li.menuitem1 {
+        background-image: url(/function/images/newbtn.bar.1.png);
+      }
+      .tab-menu li.menuitem2 {
+        background-image: url(/function/images/newbtn.bar.2.png);
+      }
+      .tab-menu li.menuitem3 {
+        background-image: url(/function/images/newbtn.bar.3.png);
+      }
+      .tab-menu li.menuitem4 {
+        background-image: url(/function/images/newbtn.bar.4.png);
+      }
+      .tab-menu li.menuitem5 {
+        background-image: url(/function/images/newbtn.bar.5.png);
+      }
+      .tab-menu li.menuitem6 {
+        background-image: url(/function/images/newbtn.bar.6.png);
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var select = null
+        var li = null
+
+        const initEvent = () => {
+          var li = $('#tabMenu1').find('li')
+          li.click(function () {
+            console.log('여기가 잘 들어오나', $(this))
+          })
+        }
+        const onSelectItem = (i) => {
+          initEvent()
+          select = li.eq(0)
+          if (select) {
+            select.removeClass('select')
+          }
+          select.addClass('select')
+        }
+
+        const tebMenu = (u, v, callback) => {
+          console.log(u, v)
+          callback(99)
+        }
+        tebMenu(3, 4, onSelectItem)
+        const setSelectItem = (item) => {}
+        //이벤트 호출
+      })
+    </script>
+    <p>첫번째 탭메뉴</p>
+    <ul class="tab-menu" id="tabMenu1">
+      <li class="menuitem1">구글</li>
+      <li class="menuitem2">페이스북</li>
+      <li class="menuitem3">printerest</li>
+      <li class="menuitem4">트위터</li>
+      <li class="menuitem5">airbnb</li>
+      <li class="menuitem6">path</li>
+    </ul>
+    <div>선택한 인덱스 값 : <span id="info"></span></div>
+    <button>버튼</button>
+  </body>
+</html>

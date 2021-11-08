@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      calc = (op, num1, num2, z) => {
+        var result = ''
+        switch (op) {
+          case '+':
+            result = num1 + num2
+            break
+          case '-':
+            result = num1 - num2
+            break
+          case '*':
+            result = num1 * num2
+            break
+          case '/':
+            result = num1 / num2
+            break
+          default:
+            document.write('없는 연산입니다.')
+            break
+        }
+        z(result, [10, 20, 30, 40])
+      }
+      const print1 = (u, v) => {
+        var sum = 0
+        for (let i = 0; i < v.length; i++) {
+          sum += v[i]
+        }
+        document.write('총합은 ' + sum + '입니다')
+        //document.write(v.reduce((acc, item) => acc + item + '<br>', 0))
+        console.log(sum)
+      }
+
+      const print2 = (w, q) => {
+        var sum2 = 0
+        for (let i = 0; i < q.length; i++) {
+          sum2 += q[i] * 3
+        }
+
+        //sum2 = q.map((j) => j * 3).reduce((i, j) => i + j)
+        document.write('정답은 ' + sum2 + '입니다.')
+      }
+
+      calc('+', 10, 20, print1)
+      calc('+', 10, 20, print2)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //함수형 언어의 하이라이트 고차함수 (high order function)
+      //함수를 인자로 전달 받고 함수를 반환하는 고차함수
+      //  이함수가 반환하는 함수는 클로저로서 카운트의 상태를 유지하기 위한
+      //  자유 변수  counter를 기억
+      const makeCounter = (predicate) => {
+        //카운트 상태를 유지하기 위한 자유변수
+        var counter = 0
+        //클로저를 반환
+        return () => {
+          counter = predicate(counter)
+          return counter
+        }
+      }
+      //보조 함수
+      const increase = (n) => ++n
+      const decrease = (n) => --n
+      const twoIncrease = (n) => {
+        var result = n - 2
+        return result
+      }
+      const fiveTimes = (n) => (n + 1) * 5
+
+      //함수로 함수 생성
+      //makeCounter 함수는 보조 함수를 인자로 전달받아 함수 반환함
+      const increaser = makeCounter(increase)
+      const decreaser = makeCounter(decrease)
+      const twoIncreaser = makeCounter(twoIncrease)
+      const fiveTimesr = makeCounter(fiveTimes)
+
+      console.log(increaser())
+      console.log(increaser())
+      console.log(twoIncreaser())
+      console.log(twoIncreaser())
+      console.log(decreaser())
+      console.log(decreaser())
+      console.log(decreaser())
+      console.log(fiveTimesr())
+      console.log(fiveTimesr())
+    </script>
+  </head>
+  <body></body>
+</html>

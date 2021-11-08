@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        var box = $('.box')
+        var toggleBtn = $('.toggle')
+
+        var outToggle = (function () {
+          var isShow = true
+
+          //1) 클로저 반환
+          return function () {
+            if (isShow) box.css('background-color', 'black')
+            else box.css('background-color', 'red')
+            //상태 변경
+            isShow = !isShow
+          }
+        })() //IIFE(선언과 동시 호출 / Immediately Invoked Function Expression)
+        var innerToggle = outToggle
+        $('button').click(function () {
+          innerToggle()
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <button>토글</button>
+    <div class="box" style="width: 100px; height: 100px; background: red"></div>
+  </body>
+</html>

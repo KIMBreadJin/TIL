@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var a = 7
+      console.log(a)
+      const f1 = function (a) {
+        return '사랑' + a
+      }
+      var res = f1(5)
+      console.log(res)
+
+      const f2 = function (funct1) {
+        funct1(3, [1, 2, 3, 4, 5])
+        const innerf2 = function () {
+          return function (tt) {
+            return function (v) {
+              return tt + v
+            }
+          }
+        }
+        return innerf2
+      }
+
+      var re = f2((r1, r2) => {
+        for (let i = 0; i < r2.length; i++) {
+          console.log('내부함수의 배열의 각각의 값은', r2[i])
+        }
+      })
+      console.log(re)
+      console.log(re())
+      console.clear()
+      console.log(re()(6)(5))
+    </script>
+  </head>
+  <body></body>
+</html>

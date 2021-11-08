@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const outerFuntion = () => {
+        var x = 10
+        var innerFunc = () => {
+          console.log(x)
+          return 5
+        }
+        return innerFunc
+      }
+      var result = outerFuntion()
+      console.dir(outerFuntion())
+      outerFuntion()
+    </script>
+
+    <button>토글</button>
+    <div class="box" style="width: 100px; height: 100px; background: red"></div>
+  </body>
+</html>

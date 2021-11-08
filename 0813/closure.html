@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //클로저 3가지
+      //1) 함수가 함수를 내장하고 있어야 한다.(중첩함수), 함수내에 함수가 있어야함
+      //2) 외부에서 내부 함수를 반환
+      //3) 내부함수에서 외부 함수의 지역변수를 참조
+
+      //클로저란
+      //함수가 종료되면 스택 메모리에서 사라지고 새로 만들어서 사용
+      //시간이 소요됨
+      //사라지지 않고 보관됨
+      //네트워크 통신에서 많이 사용됨
+      //단점은 메모리를 많이 차지함
+      var base = 'hello,'
+      const sayHello = (name) => {
+        var text = base + name
+        return () => {
+          console.log(text)
+        }
+      }
+
+      sayHello('jack')()
+      console.dir(sayHello('jack'))
+
+      const operator = (a) => (b) => a + b
+      const operator = function (a) {
+        return function (b) {
+          return a + b
+        }
+      }
+      var result = operator(5)
+      console.dir(result)
+      console.log(result(9))
+      // var f2 = () => {
+      //   var q = 3
+      //   var f1 = () => {
+      //     var q = 2
+      //     return p + q
+      //   }
+      //   return f1
+      // }
+      // var res = f2()
+      // console.dir(res)
+    </script>
+  </head>
+  <body></body>
+</html>

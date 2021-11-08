@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <script>
+      //카운트 상태를 유지하기 위한 전역 변수
+      var counter = 0
+      $(document).ready(function () {
+        var increaseBtn = $('#increase')
+        var count = $('#count')
+
+        const increase = () => {
+          return function () {
+            return ++counter
+          }
+        }
+        const incRsult = increase()
+        increaseBtn.click(function () {
+          var result = incRsult()
+          console.log(result)
+          count.html('변경된 내용').html(result + '<br>')
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <p>전역 변수를 사용한 카운팅</p>
+    <button id="increase">+</button>
+    <p id="count">0</p>
+  </body>
+</html>
