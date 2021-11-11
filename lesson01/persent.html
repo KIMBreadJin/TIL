@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        var present = prompt('경품 번호을 입력하시오')
+        present = parseInt(present)
+        if (present == 1) {
+          alert('당첨! 냉장고')
+        } else if (present == 2) {
+          alert('당청! 세탁기')
+        } else if (present == 3) {
+          alert('당첨! TV')
+        } else {
+          alert('꽝입니다..')
+        }
+      })
+    </script>
+  </head>
+  <body></body>
+</html>

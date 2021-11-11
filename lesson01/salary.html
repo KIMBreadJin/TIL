@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <script>
+      $(document).ready(function () {
+        var price = prompt('연봉 얼마나 올려주실건가요')
+        price = parseInt(price)
+        if (price < 100) {
+          alert('회사 그만둡니다')
+        } else if (price <= 200) {
+          alert('3개월 후에 그만두고 닭집 차린다')
+        } else if (price <= 500) {
+          alert('그냥 다닌다')
+        } else {
+          alert('완전 내회사! 회사에 충성한다')
+        }
+      })
+    </script>
+  </head>
+  <body></body>
+</html>

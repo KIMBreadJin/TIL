@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 13px;
+      }
+      #panel {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #999;
+        position: relative;
+      }
+      #bar {
+        /* position: absolute; */
+        left: 50px;
+        top: 190px;
+        width: 500px;
+        height: 20px;
+        background: #f30;
+      }
+      #fish {
+        position: absolute;
+        left: 50px;
+        top: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const f = () => {
+        var xx = parseInt(Math.random() * 600)
+        var yy = parseInt(Math.random() * 300)
+        $('#fish').css({ left: xx + 'px', top: yy + 'px' })
+      }
+      $(document).ready(function () {
+        $('button').click(function () {
+          setInterval(f, 1000)
+        })
+      })
+    </script>
+    <div>
+      <input id="x" type="text" />
+      <p></p>
+      <input id="y" type="text" />
+    </div>
+    <div>
+      <button id="start">이동</button>
+    </div>
+    <div id="pane1">
+      <div id="bar"></div>
+      <img src="fish.png" id="fish" alt="" />
+    </div>
+  </body>
+</html>

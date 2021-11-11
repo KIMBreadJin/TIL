@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 9px;
+      }
+      #panel {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #999;
+        position: relative;
+      }
+      #bar {
+        position: absolute;
+        left: 50px;
+        top: 190px;
+        width: 500px;
+        height: 20px;
+        background: #f30;
+      }
+      #fish {
+        position: absolute;
+        left: 50px;
+        top: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        var $fish = $('#fish')
+        $('#btnStart').click(function () {
+          $fish.animate({ left: '430px' }, 10000)
+        })
+      })
+    </script>
+    <div id="pane1">
+      <div id="bar"></div>
+      <img src="fish.png" id="fish" alt="" />
+    </div>
+    <div id="nav">
+      <button id="btnStart">물고기 움직이기</button>
+    </div>
+  </body>
+</html>

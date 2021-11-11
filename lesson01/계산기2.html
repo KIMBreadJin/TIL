@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const sum = (i, j) => i + j
+      const minus = (i, j) => i - j
+      const mul = (i, j) => i * j
+      const div = (i, j) => i / j
+      const mod = (i, j) => i % j
+
+      var result = 0
+      var arr = [sum, minus, mul, div, mod]
+      for (var i = 0; i < arr.length; i++) {
+        var input1 = prompt('첫번째 입력할 숫자 :')
+        var input2 = prompt('두번째 입력할 숫자 :')
+
+        document.write(Number(arr[i](input1, input2)) + '<br>')
+        console.log(input1, input2)
+        result += Number(arr[i](input1, input2))
+      }
+      document.write('총합은 ' + result)
+    </script>
+  </body>
+</html>

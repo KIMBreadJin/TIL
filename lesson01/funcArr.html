@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const add = (i, j) => i + j
+      const minus = (i, j) => i - j
+      const mul = (i, j) => i * j
+      const div = (i, j) => i / j
+      var funcArr = [add, minus, mul, div]
+      var cnt = 0
+      $(document).ready(function () {
+        $('button').click(function () {
+          setInterval(() => {
+            var result = funcArr[cnt++](Number($('#x').val()), Number($('#y').val()))
+            console.log(result)
+            console.log('카운트 값 ', cnt)
+            if (cnt > 3) {
+              cnt = 0
+            }
+          }, 1000)
+        })
+      })
+    </script>
+    <div>
+      <input id="x" type="text" />
+      <p></p>
+      <input id="y" type="text" />
+    </div>
+    <div>
+      <button id="start">이동</button>
+    </div>
+    <div id="pane1">
+      <div id="bar"></div>
+      <img src="fish.png" id="fish" alt="" />
+    </div>
+  </body>
+</html>
