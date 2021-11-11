@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Promises</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>Promise</h1>
+    <script type="text/babel">
+      const getFakeMembers = (count) =>
+        new Promise((res, rej) => {
+          const api = `https://api.randomuser.me/?nat=US&results=${count}`
+          const request = new XMLHttpRequest()
+          request.open('GET', api)
+          request.onload = () => (request.status === 200 ? res(JSON.parse(request.response).results) : rej(Error(request.statusText)))
+          request.onerror = (err) => ref(err)
+          request.send()
+        })
+      getFakeMembers(5)
+        .then((members) => console.log(members))
+        .catch((err) => console.error(new Error('로딩 불가능')))
+    </script>
+  </body>
+</html>

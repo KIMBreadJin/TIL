@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Promises</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <script type="text/babel">
+      const createClockTime = (date) => {
+        console.log(date)
+        return { date }
+      }
+      const appendAMPM = ({ date }) => ({
+        date,
+        ampm: date.getHours() >= 12 ? 'PM' : 'AM',
+      })
+      const civilianHours = (clockTime) => {
+        const hours = clockTime.date.getHours()
+        return {
+          ...clockTime,
+          hours: hours > 12 ? hours - 12 : hours,
+        }
+      }
+      const removeDate = (clockTime) => {
+        let newTime = { ...clockTime }
+        delete newTime.date
+        return newTime
+      }
+      const compose =
+        (...fns) =>
+        (args) =>
+          fns.reduce((composed, f) => f(composed), args)
+      const oneFuncion = compose(createClockTime, appendAMPM, civilianHours, removeDate)
+      console.log(oneFuncion(new Date()))
+
+      const a = (...t) => {
+        console.log(t)
+      }
+      a(1, 2, 3, 4, 5, 6, 7)
+      console.log([(i, j) => i + j, (i, j) => i - j, (i, j) => i * j, (i, j) => i / j].map((u) => u(2, 3)))
+
+      const fiveTimes = (i) => i * 5
+      const plus = (i) => i + 1
+      const second = (i) => i * 3
+      const third = (i) => (i + 5) / 6
+      const composeFunc = compose(fiveTimes, plus, second)
+      console.log(composeFunc(3))
+    </script>
+  </body>
+</html>

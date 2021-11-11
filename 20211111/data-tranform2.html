@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Promises</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <script>
+      const colors = [
+        {
+          id: '-xekare',
+          title: 'rad red',
+          rating: 3,
+        },
+        {
+          id: '-jbwsof',
+          title: 'big blue',
+          rating: 2,
+        },
+        {
+          id: '-prigbj',
+          title: 'grizzly grey',
+          rating: 5,
+        },
+        {
+          id: '-ryhbhsl',
+          title: 'banana',
+          rating: 1,
+        },
+      ]
+      //reduce
+      var hash = { '-ryhbhsl': { title: 'banana', rating: 1 }, prigbj: { title: 'grizzly grey', rating: 5 } }
+      var store = colors.reduce((hash, { id, title, rating }) => {
+        hash[id] = { title, rating }
+        return hash
+      }, {})
+      console.log(store)
+      console.clear()
+
+      const colors1 = ['red', 'red', 'green', 'blue', 'green']
+      const distinctColors = colors1.reduce((distinct, color) => (distinct.indexOf(color) !== -1 ? distinct : [...distinct, color]), [])
+      console.log(distinctColors)
+    </script>
+  </body>
+</html>

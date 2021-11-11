@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <title>Promises</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>데이터 변형</h1>
+    <script type="text/babel">
+      const schools = ['TorkTown', 'Washington & Lee', 'Wakefield']
+      console.log(schools.join('-'))
+      const wSchools = schools.filter((school) => school.includes('Lee'))
+      console.log(wSchools)
+      const cutSchool = (cut, list) => list.filter((i) => i != cut)
+      console.log(cutSchool('Washington & Lee', schools).join('*'))
+      console.log(schools.join('\n'))
+      console.clear()
+      const highSchools = schools.map((i) => i + `고등학교`)
+      console.log(highSchools.join('\n'))
+      console.log(schools.join('\n'))
+      console.clear()
+
+      const frederick = {
+        name: 'Frederich Dougllass',
+        canRead: false,
+        canWrite: false,
+      }
+
+      const selfEducate = (person) => ({
+        ...person,
+        canRead: true,
+        canWrite: true,
+      })
+      console.log(selfEducate(frederick))
+      console.log(frederick)
+      const highSchools1 = schools.map((i) => ({
+        name: i,
+        age: i.length,
+      }))
+      console.log(highSchools1)
+      console.clear()
+
+      let schools3 = [{ name: 'Yorktwon' }, { name: 'Stratford' }, { name: 'Washington & Lee' }, { name: 'WakeField' }]
+      const editName = (oldName, newName, arr) =>
+        arr.map((i) => {
+          if (oldName === i.name) {
+            return newName
+            console.log('바뀐 이름은 ' + i.name)
+          } else {
+            return i.name
+          }
+        })
+      let updateSchools = editName('Stratford', 'HB Woodlawn', schools3)
+      console.log(updateSchools)
+
+      const green = { a: { red: 7 }, b: { red: 9 }, c: { red: 3 } }
+      const gKey = Object.keys(green).map((key) => ({ migum: key, bundang: green[key].red }))
+      console.log(gKey)
+
+      const ages = [21, 18, 42, 40, 64, 63, 34]
+      const bigger = ages.reduce((a, b) => {
+        if (a < b) return b
+        else return a
+      })
+      console.log(bigger)
+    </script>
+  </body>
+</html>
